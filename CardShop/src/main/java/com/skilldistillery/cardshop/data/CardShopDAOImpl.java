@@ -31,6 +31,8 @@ public class CardShopDAOImpl implements CardShopDAO {
 
 	@Override
 	public YuGiOhMonsterCard create(YuGiOhMonsterCard card) {
+		
+		
 		return null;
 	}
 

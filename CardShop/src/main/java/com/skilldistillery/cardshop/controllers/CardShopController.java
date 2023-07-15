@@ -26,6 +26,14 @@ public class CardShopController {
 		model.addAttribute("cardList", shopDAO.findAll());
 		return "view";
 	}
+	
+	@RequestMapping(path="createCard.do")
+	public ModelAndView addCard() {
+		
+		
+		
+		return null;
+	}
 
 	@RequestMapping(path = { "deleteCard.do" }, params = "cardId")
 	public ModelAndView deleteCard(@RequestParam Integer cardId) {

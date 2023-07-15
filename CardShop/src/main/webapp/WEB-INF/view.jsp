@@ -22,5 +22,14 @@
 			</c:forEach>
 		</c:when>
 	</c:choose>
+	<c:choose>
+	<c:when test="${not empty card }">
+	
+	
+	
+	</c:when>
+	
+	
+	</c:choose>
 </body>
 </html>
