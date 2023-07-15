@@ -14,6 +14,8 @@
 <h1>Welcome to the CardShop</h1>
 
 <a href="showCard.do">View the cards in the current collection</a>
+<br>
+<a href="createcard.html">Add your own card to the collection</a>
 
 </body>
 </html>

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.cardshop.data.CardShopDAO;
 
@@ -24,4 +26,18 @@ public class CardShopController {
 		model.addAttribute("cardList", shopDAO.findAll());
 		return "view";
 	}
+
+	@RequestMapping(path = { "deleteCard.do" }, params = "cardId")
+	public ModelAndView deleteCard(@RequestParam Integer cardId) {
+
+		boolean createdCard = shopDAO.deleteById(cardId);
+
+		ModelAndView mv = new ModelAndView();
+
+		mv.setViewName("delete");
+		mv.addObject("card", createdCard);
+
+		return mv;
+	}
+
 }

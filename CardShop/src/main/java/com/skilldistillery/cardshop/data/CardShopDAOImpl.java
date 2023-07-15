@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -18,8 +19,8 @@ public class CardShopDAOImpl implements CardShopDAO {
 	private EntityManager em;
 
 	@Override
-	public YuGiOhMonsterCard findById(int cardid) {
-		return em.find(YuGiOhMonsterCard.class, cardid);
+	public YuGiOhMonsterCard findById(int cardId) {
+		return em.find(YuGiOhMonsterCard.class, cardId);
 	}
 
 	@Override
@@ -39,8 +40,18 @@ public class CardShopDAOImpl implements CardShopDAO {
 	}
 
 	@Override
-	public boolean deleteById(int cardid) {
-		return false;
+	public boolean deleteById(int cardId) {
+		String jpql = "DELETE FROM YuGiOhMonsterCard AS card WHERE card.id = :cardIdToDelete";
+		TypedQuery<YuGiOhMonsterCard> cardDeleted = em.createQuery(jpql, YuGiOhMonsterCard.class)
+				.setParameter("cardIdToDelete", cardId);
+
+		if (cardDeleted != null) {
+			em.remove(cardDeleted);
+		} else {
+
+			return false;
+		}
+		return true;
 	}
 
 }
