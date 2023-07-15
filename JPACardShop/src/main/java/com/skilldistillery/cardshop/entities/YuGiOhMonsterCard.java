@@ -20,6 +20,16 @@ public class YuGiOhMonsterCard {
 	private int starLevel;
 
 	private String attribute;
+	
+	@Column(name="monster_type")
+	private String monsterType;
+	
+	@Column(name="card_description")
+	private String cardDescription;
+	
+	private int attack;
+	
+	private int defense;
 
 	public YuGiOhMonsterCard() {
 		super();
@@ -57,10 +67,43 @@ public class YuGiOhMonsterCard {
 		this.attribute = attribute;
 	}
 
+	public String getMonsterType() {
+		return monsterType;
+	}
+
+	public void setMonsterType(String monsterType) {
+		this.monsterType = monsterType;
+	}
+
+	public String getCardDescription() {
+		return cardDescription;
+	}
+
+	public void setCardDescription(String cardDescription) {
+		this.cardDescription = cardDescription;
+	}
+
+	public int getAttack() {
+		return attack;
+	}
+
+	public void setAttack(int attack) {
+		this.attack = attack;
+	}
+
+	public int getDefense() {
+		return defense;
+	}
+
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
+
 	@Override
 	public String toString() {
 		return "YuGiOhMonsterCard [id=" + id + ", name=" + name + ", starLevel=" + starLevel + ", attribute="
-				+ attribute + "]";
+				+ attribute + ", monsterType=" + monsterType + ", cardDescription=" + cardDescription + ", attack="
+				+ attack + ", defense=" + defense + "]";
 	}
 
 }

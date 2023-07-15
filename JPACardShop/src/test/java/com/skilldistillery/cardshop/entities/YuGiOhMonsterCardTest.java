@@ -44,6 +44,9 @@ class YuGiOhMonsterCardTest {
 	void test_CardShop_entity_mapping() {
 		assertNotNull(monsterCard);
 		assertEquals("Dark Magician", monsterCard.getName());
+		assertEquals("spellcaster", monsterCard.getMonsterType());
+		assertEquals("dark", monsterCard.getAttribute());
+		assertEquals(2500, monsterCard.getAttack());
 	
 	
 	}
