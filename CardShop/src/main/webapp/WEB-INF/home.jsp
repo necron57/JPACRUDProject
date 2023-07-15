@@ -6,18 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Card Shop</title>
+
+<jsp:include page="bootstrapHead.jsp"/>
 </head>
 <body>
 
 <h1>Welcome to the CardShop</h1>
-<c:forEach var="card" items="${cardList }">
-<li>${card.name }</li>
-<li>${card.monsterType }</li>
-<li>${card.cardDescription }</li>
-<li>Attack/${card.attack }</li>
 
-</c:forEach>
-
+<a href="showCard.do">View the cards in the current collection</a>
 
 </body>
 </html>

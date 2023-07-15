@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+body{
+	background:linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)), url(https://ms.yugipedia.com//6/6c/Kame_inside.jpg) ;
+}
+li{
+	background-color: darkturquoise;
+}

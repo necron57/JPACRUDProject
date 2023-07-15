@@ -14,9 +14,14 @@ public class CardShopController {
 	private CardShopDAO shopDAO;
 
 	@RequestMapping(path = { "/", "home.do" })
-	public String goHome(Model model) {
-		model.addAttribute("cardList", shopDAO.findAll());
-		
+	public String goHome() {
+
 		return "home";
+	}
+
+	@RequestMapping(path = "showCard.do")
+	public String showCard(Model model) {
+		model.addAttribute("cardList", shopDAO.findAll());
+		return "view";
 	}
 }
