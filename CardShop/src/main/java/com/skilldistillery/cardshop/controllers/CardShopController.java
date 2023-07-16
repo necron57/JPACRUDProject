@@ -23,7 +23,7 @@ public class CardShopController {
 	@RequestMapping(path = "showCard.do")
 	public String showCard(Model model) {
 		model.addAttribute("cardList", shopDAO.findAll());
-		return "view";
+		return "card/view";
 	}
 
 	@RequestMapping(path = "showCard.do", params = "cardId")
@@ -31,7 +31,7 @@ public class CardShopController {
 
 		model.addAttribute("card", shopDAO.findById(cardId));
 
-		return "view";
+		return "card/view";
 	}
 
 	@RequestMapping(path = "createCard.do")
@@ -52,8 +52,8 @@ public class CardShopController {
 	@RequestMapping(path = { "deleteCard.do" }, params = "cardId")
 	public String deleteCard(Model model, @RequestParam Integer cardId) {
 		shopDAO.deleteById(cardId);
-
-		return "home";
+		
+		return "card/delete";
 	}
 
 }

@@ -10,7 +10,7 @@
 <jsp:include page="bootstrapHead.jsp"/>
 </head>
 <body>
-
+<div class="container card">
 <h1>Welcome to the CardShop</h1>
 <form action="showCard.do" method="POST">
 		<label for="cardId">Enter the ID to search by: </label> <br> <input
@@ -18,13 +18,13 @@
 		<button>Get Card</button>
 	</form>
 <br>
-<form action="showCard.do">
+<form action="showCard.do" method="GET">
 <button>View the cards in the current collection</button>
 </form>
 <br>
 <form action="createcard.html">
 <button>Add your own card to the collection</button></form>
 
-
+</div>
 </body>
 </html>
