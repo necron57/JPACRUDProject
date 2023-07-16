@@ -35,9 +35,10 @@ public class CardShopController {
 	}
 
 	@RequestMapping(path = "createCard.do")
-	public String addCard() {
-
-		return null;
+	public String addCard(Model model, YuGiOhMonsterCard card) {
+		shopDAO.create(card);
+		model.addAttribute("card", card);
+		return "home";
 	}
 
 	@RequestMapping(path = "updateCard.do")

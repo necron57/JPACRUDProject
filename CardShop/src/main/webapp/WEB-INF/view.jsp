@@ -66,6 +66,10 @@
 	<form action="home.do">
 		<button>Home</button>
 	</form>
+	<form action="createCard.do"><button>create your own card</button></form>
+	<form action="showCard.do">
+<button>View the cards in the current collection</button>
+</form>
 	<c:choose>
 		<c:when test="${not empty card }">
 			<li>${card.name }</li>

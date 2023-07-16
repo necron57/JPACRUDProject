@@ -17,10 +17,14 @@
 			type="number" name="cardId"> <br>
 		<button>Get Card</button>
 	</form>
-
-<a href="showCard.do">View the cards in the current collection</a>
 <br>
-<a href="createcard.html">Add your own card to the collection</a>
+<form action="showCard.do">
+<button>View the cards in the current collection</button>
+</form>
+<br>
+<form action="createcard.html">
+<button>Add your own card to the collection</button></form>
+
 
 </body>
 </html>
