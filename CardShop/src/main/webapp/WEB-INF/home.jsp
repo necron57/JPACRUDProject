@@ -12,6 +12,11 @@
 <body>
 
 <h1>Welcome to the CardShop</h1>
+<form action="showCard.do" method="POST">
+		<label for="cardId">Enter the ID to search by: </label> <br> <input
+			type="number" name="cardId"> <br>
+		<button>Get Card</button>
+	</form>
 
 <a href="showCard.do">View the cards in the current collection</a>
 <br>

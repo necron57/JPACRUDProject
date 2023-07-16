@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -31,28 +30,42 @@ public class CardShopDAOImpl implements CardShopDAO {
 
 	@Override
 	public YuGiOhMonsterCard create(YuGiOhMonsterCard card) {
-		
-		
-		return null;
+		em.persist(card);
+
+		em.flush();
+
+		return card;
 	}
 
 	@Override
 	public YuGiOhMonsterCard update(int cardId, YuGiOhMonsterCard card) {
-		return null;
+
+		YuGiOhMonsterCard managed = em.find(YuGiOhMonsterCard.class, cardId);
+		managed.setId(cardId);
+		managed.setName(card.getName());
+		managed.setStarLevel(card.getStarLevel());
+		managed.setMonsterAttribute(card.getMonsterAttribute());
+		managed.setMonsterType(card.getMonsterType());
+		managed.setCardDescription(card.getCardDescription());
+		managed.setAttack(card.getAttack());
+		managed.setDefense(card.getDefense());
+		em.merge(managed);
+		em.flush();
+		return managed;
 	}
 
 	@Override
 	public boolean deleteById(int cardId) {
-		String jpql = "DELETE FROM YuGiOhMonsterCard AS card WHERE card.id = :cardIdToDelete";
-		TypedQuery<YuGiOhMonsterCard> cardDeleted = em.createQuery(jpql, YuGiOhMonsterCard.class)
-				.setParameter("cardIdToDelete", cardId);
 
-		if (cardDeleted != null) {
-			em.remove(cardDeleted);
+		YuGiOhMonsterCard cardToDelete = em.find(YuGiOhMonsterCard.class, cardId);
+
+		if (cardToDelete != null) {
+			em.remove(cardToDelete);
+			em.flush();
 		} else {
-
 			return false;
 		}
+
 		return true;
 	}
 

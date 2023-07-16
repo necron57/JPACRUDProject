@@ -5,9 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.skilldistillery.cardshop.data.CardShopDAO;
+import com.skilldistillery.cardshop.entities.YuGiOhMonsterCard;
 
 @Controller
 public class CardShopController {
@@ -26,26 +25,34 @@ public class CardShopController {
 		model.addAttribute("cardList", shopDAO.findAll());
 		return "view";
 	}
-	
-	@RequestMapping(path="createCard.do")
-	public ModelAndView addCard() {
-		
-		
-		
+
+	@RequestMapping(path = "showCard.do", params = "cardId")
+	public String showCardById(Model model, int cardId) {
+
+		model.addAttribute("card", shopDAO.findById(cardId));
+
+		return "view";
+	}
+
+	@RequestMapping(path = "createCard.do")
+	public String addCard() {
+
 		return null;
 	}
 
+	@RequestMapping(path = "updateCard.do")
+	public String updateCard(Model model, YuGiOhMonsterCard card, int cardId) {
+		shopDAO.update(cardId, card);
+		model.addAttribute("card", card);
+
+		return "home";
+	}
+
 	@RequestMapping(path = { "deleteCard.do" }, params = "cardId")
-	public ModelAndView deleteCard(@RequestParam Integer cardId) {
+	public String deleteCard(Model model, @RequestParam Integer cardId) {
+		shopDAO.deleteById(cardId);
 
-		boolean createdCard = shopDAO.deleteById(cardId);
-
-		ModelAndView mv = new ModelAndView();
-
-		mv.setViewName("delete");
-		mv.addObject("card", createdCard);
-
-		return mv;
+		return "home";
 	}
 
 }
