@@ -38,7 +38,7 @@
 		<input type="text" class="form-control" id="imageUrl" name="imageUrl" value="${card.imageUrl }">
 		
 		<br>
-		<button>Summon this card</button>
+		<button class="btn btn-primary">Summon this card</button>
 	
 	</form>
 </div>
