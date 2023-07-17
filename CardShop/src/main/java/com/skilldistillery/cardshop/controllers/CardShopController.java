@@ -23,6 +23,9 @@ public class CardShopController {
 	@RequestMapping(path = "showCard.do")
 	public String showCard(Model model) {
 		model.addAttribute("cardList", shopDAO.findAll());
+		if(shopDAO.findAll() == null) {
+			return"cardSearchError";
+		}
 		return "card/view";
 	}
 
@@ -30,11 +33,19 @@ public class CardShopController {
 	public String showCardById(Model model, int cardId) {
 
 		model.addAttribute("card", shopDAO.findById(cardId));
+		if(shopDAO.findById(cardId) == null) {
+			return "cardSearchError";
+		}
 
 		return "card/view";
 	}
+	
+	@RequestMapping(path= "createCard.do")
+	public String createCard(Model model) {
+		return "card/createCard";
+	}
 
-	@RequestMapping(path = "createCard.do")
+	@RequestMapping(path = "addCard.do")
 	public String addCard(Model model, YuGiOhMonsterCard card) {
 		shopDAO.create(card);
 		model.addAttribute("card", card);

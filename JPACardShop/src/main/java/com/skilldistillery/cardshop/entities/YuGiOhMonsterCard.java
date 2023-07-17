@@ -31,6 +31,9 @@ public class YuGiOhMonsterCard {
 	private int attack;
 	
 	private int defense;
+	
+	@Column(name="image_url")
+	private String imageUrl;
 
 	public YuGiOhMonsterCard() {
 		super();
@@ -100,11 +103,19 @@ public class YuGiOhMonsterCard {
 		this.defense = defense;
 	}
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	@Override
 	public String toString() {
 		return "YuGiOhMonsterCard [id=" + id + ", name=" + name + ", starLevel=" + starLevel + ", monsterAttribute="
 				+ monsterAttribute + ", monsterType=" + monsterType + ", cardDescription=" + cardDescription
-				+ ", attack=" + attack + ", defense=" + defense + "]";
+				+ ", attack=" + attack + ", defense=" + defense + ", imageUrl=" + imageUrl + "]";
 	}
 
 	

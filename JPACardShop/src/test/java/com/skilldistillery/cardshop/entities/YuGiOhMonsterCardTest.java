@@ -47,7 +47,7 @@ class YuGiOhMonsterCardTest {
 		assertEquals("spellcaster", monsterCard.getMonsterType());
 		assertEquals("dark", monsterCard.getMonsterAttribute());
 		assertEquals(2500, monsterCard.getAttack());
-	
+		assertEquals("https://ms.yugipedia.com//0/0a/DarkMagician-LOB-EN-UR-UE-25thAnniversaryEdition.png", monsterCard.getImageUrl());
 	
 	}
 
