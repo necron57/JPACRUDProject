@@ -16,7 +16,7 @@
         </li>
       </ul>
       <form action="showCard.do" class="d-flex" id="cardSearch" method="POST">
-		<label for="cardId">Enter the ID to search by: </label> <br> <input
+		<label for="cardId">Search by the Card Id: </label> <br> <input
 			type="number" name="cardId"> <br>
 		<button>Get Card</button>
 	</form>
