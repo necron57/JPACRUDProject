@@ -34,7 +34,7 @@
 		<label for="defense">Enter in the Defense of the card: </label>
 		<input type="number" class="form-control" placeholder="defense" name="defense">
 		<br>
-		<label for="imageUrl">Enter in the new Defense:</label> 
+		<label for="imageUrl">Enter in the image</label> 
 		<input type="text" class="form-control" id="imageUrl" name="imageUrl" value="${card.imageUrl }">
 		
 		<br>
